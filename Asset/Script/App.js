@@ -1,7 +1,10 @@
 const gameBoard=document.getElementById('game-board');
-const info=document.getElementById('info');
+const textinfo=document.getElementById('info');
 
 const startCells=["","","","","","","","",""];
+
+let firstHit="circle";
+textinfo.textContent="Circle Goes First Hit !";
 
 
 function createBoard(){
@@ -19,6 +22,10 @@ createBoard();
 
 function addCircle(e){
     const wrapDiv=document.createElement('div');
-    wrapDiv.classList.add('cross');
+    wrapDiv.classList.add(firstHit);
     e.target.append(wrapDiv);
+    firstHit=firstHit==="circle" ? "cross" : "circle";
+    textinfo.textContent="It is now "+firstHit+"'s Turn .";
+    e.target.removeEventListener('click',firstHit);
+    checkScore();
 }
