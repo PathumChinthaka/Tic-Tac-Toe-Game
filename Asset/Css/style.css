@@ -7,4 +7,8 @@
 body{
     background-color: rgb(29, 29, 29);
     color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
