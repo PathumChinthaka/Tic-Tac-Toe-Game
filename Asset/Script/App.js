@@ -19,6 +19,6 @@ createBoard();
 
 function addCircle(e){
     const wrapDiv=document.createElement('div');
-    wrapDiv.classList.add('circle');
+    wrapDiv.classList.add('cross');
     e.target.append(wrapDiv);
 }
