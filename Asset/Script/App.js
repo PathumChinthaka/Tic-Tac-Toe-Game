@@ -31,6 +31,7 @@ function cellContent(e){
 }
 
 function checkWinner(){
+
     const getSquare=document.querySelectorAll('.square');
     console.log(getSquare); 
     const winningCombo=[
@@ -42,12 +43,25 @@ function checkWinner(){
     console.log(getSquare[4]);
 
     winningCombo.forEach(array=>{
-        
+
         let circleWin=array.every(cell=> 
             getSquare[cell].firstChild ?.classList.contains('circle'));
 
             if(circleWin){
                 textinfo.textContent="Circle Wins 🎉";
+                getSquare.forEach(square=>square.replaceWith(square.cloneNode(true)));
+                return;
+            };
+
+        });
+
+    winningCombo.forEach(array=>{
+
+        let crossWin=array.every(cell=> 
+            getSquare[cell].firstChild ?.classList.contains('cross'));
+
+            if(crossWin){
+                textinfo.textContent="Cross Wins 🎉";
                 getSquare.forEach(square=>square.replaceWith(square.cloneNode(true)));
                 return;
             }
